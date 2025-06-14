@@ -1,9 +1,9 @@
 {
-  "name": "lokrang_portfolio",
+  "name": "lokrangcreations",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "type": "module",
-  "homepage": "https://parthbarahate.github.io/lokrangcreations/",
+  "homepage": "https://parthob12.github.io/lokarangcreations/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

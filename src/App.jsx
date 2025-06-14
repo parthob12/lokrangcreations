@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // Main App component
 function App() {
+  console.log("App component rendering"); // Debug log
+
   // State to manage the visibility of the mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -11,6 +13,7 @@ function App() {
 
   // Function to handle scroll and update active section
   useEffect(() => {
+    console.log("App component mounted"); // Debug log
     const handleScroll = () => {
       const sections = document.querySelectorAll('section[id]');
       const scrollPosition = window.scrollY + 100;
@@ -56,7 +59,7 @@ function App() {
     <section id="home" className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white p-4">
       <div className="flex flex-col items-center justify-center w-full h-full">
         <img
-          src="/img_src/Logo Black.png"
+          src="../img_src/Logo Black.png"
           alt="LOKRANG CREATIONS"
           className="w-full max-w-lg h-auto object-contain mb-6 drop-shadow-xl"
           style={{ background: 'transparent' }}
@@ -495,10 +498,9 @@ function App() {
             {/* Logo/Brand Name */}
             <button onClick={() => scrollToSection('home')} className="text-white text-2xl font-bold tracking-wide flex items-center space-x-2 focus:outline-none pl-0 ml-0">
               <img
-                src="/img_src/Logo Black.png"
+                src="../img_src/Logo Black.png"
                 alt="Lokrang Creations Logo"
                 className="h-10 w-auto object-contain mr-2"
-                style={{ maxHeight: '40px', marginLeft: 0, paddingLeft: 0 }}
               />
               <span
                 className="bg-gradient-to-r from-[#ea33b3] via-[#e6806a] via-[#911cbb] via-[#7420c2] to-[#59c2d2] bg-clip-text text-transparent"
@@ -605,6 +607,7 @@ function App() {
 
         {/* Main Content */}
         <main className="pt-16">
+          {console.log("Rendering main content")} {/* Debug log */}
           {currentPortfolioPage === null ? (
             <>
               <HomeSection />
