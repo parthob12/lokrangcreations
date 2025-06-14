@@ -15,23 +15,45 @@ const imageFiles = fs
   .readdirSync(imgSrcDir)
   .filter((file) => /\.(jpg|jpeg|png|gif)$/i.test(file));
 
+console.log(`Found ${imageFiles.length} images to optimize`);
+
 // Process each image
-imageFiles.forEach(async (file) => {
+const processImage = async (file) => {
   const inputPath = path.join(imgSrcDir, file);
   const outputPath = path.join(optimizedDir, file);
 
   try {
-    await sharp(inputPath)
-      .resize(1920, null, {
-        // Max width 1920px, maintain aspect ratio
-        withoutEnlargement: true,
-        fit: "inside",
-      })
-      .jpeg({ quality: 80 }) // Convert to JPEG with 80% quality
-      .toFile(outputPath);
+    // Get image metadata
+    const metadata = await sharp(inputPath).metadata();
+    console.log(`Processing ${file} (${metadata.width}x${metadata.height})`);
 
-    console.log(`Optimized: ${file}`);
+    // Only resize if image is larger than 1920px
+    if (metadata.width > 1920) {
+      await sharp(inputPath)
+        .resize(1920, null, {
+          withoutEnlargement: true,
+          fit: "inside",
+        })
+        .jpeg({ quality: 80 })
+        .toFile(outputPath);
+    } else {
+      // Just copy and optimize if image is already small enough
+      await sharp(inputPath).jpeg({ quality: 80 }).toFile(outputPath);
+    }
+
+    console.log(`✓ Optimized: ${file}`);
   } catch (error) {
-    console.error(`Error optimizing ${file}:`, error);
+    console.error(`✗ Error optimizing ${file}:`, error.message);
+    // Copy original file if optimization fails
+    fs.copyFileSync(inputPath, outputPath);
+    console.log(`  Copied original file as fallback`);
   }
-});
+};
+
+// Process all images
+Promise.all(imageFiles.map(processImage))
+  .then(() => console.log("All images processed"))
+  .catch((error) => {
+    console.error("Error processing images:", error);
+    process.exit(1);
+  });

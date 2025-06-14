@@ -15,6 +15,8 @@ export default defineConfig({
     extensions: [".js", ".jsx", ".json"],
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@assets": path.resolve(__dirname, "./public/assets"),
+      "@images": path.resolve(__dirname, "./public/optimized-images"),
     },
   },
   root: "./",
