@@ -5,7 +5,7 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: process.env.NODE_ENV === "production" ? "/lokarangcreations/" : "/",
+  base: "/lokarangcreations/",
   server: {
     port: 5173,
     host: true,

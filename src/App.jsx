@@ -59,7 +59,7 @@ function App() {
     <section id="home" className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white p-4">
       <div className="flex flex-col items-center justify-center w-full h-full">
         <img
-          src="../img_src/Logo Black.png"
+          src="/lokarangcreations/img_src/Logo Black.png"
           alt="LOKRANG CREATIONS"
           className="w-full max-w-lg h-auto object-contain mb-6 drop-shadow-xl"
           style={{ background: 'transparent' }}
@@ -498,7 +498,7 @@ function App() {
             {/* Logo/Brand Name */}
             <button onClick={() => scrollToSection('home')} className="text-white text-2xl font-bold tracking-wide flex items-center space-x-2 focus:outline-none pl-0 ml-0">
               <img
-                src="../img_src/Logo Black.png"
+                src="/lokarangcreations/img_src/Logo Black.png"
                 alt="Lokrang Creations Logo"
                 className="h-10 w-auto object-contain mr-2"
               />
