@@ -31,4 +31,11 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    include: ["react", "react-dom"],
+  },
+  esbuild: {
+    jsxFactory: "React.createElement",
+    jsxFragment: "React.Fragment",
+  },
 });

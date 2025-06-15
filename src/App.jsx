@@ -59,7 +59,7 @@ function App() {
     <section id="home" className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white p-4">
       <div className="flex flex-col items-center justify-center w-full h-full">
         <img
-          src="/lokrangcreations/img_src/LogoBlack.png"
+          src="./img_src/LogoBlack.png"
           alt="LOKRANG CREATIONS"
           className="w-full max-w-lg h-auto object-contain mb-6 drop-shadow-xl"
           style={{ background: 'transparent' }}
