@@ -59,7 +59,7 @@ function App() {
     <section id="home" className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white p-4">
       <div className="flex flex-col items-center justify-center w-full h-full">
         <img
-          src="./img_src/LogoBlack.png"
+          src="/optimized-images/LogoBlack.png"
           alt="LOKRANG CREATIONS"
           className="w-full max-w-lg h-auto object-contain mb-6 drop-shadow-xl"
           style={{ background: 'transparent' }}
@@ -241,9 +241,9 @@ function App() {
       <h2 className="text-4xl font-bold mb-8">Corporate Films</h2>
       <div className="flex justify-center w-full">
         <div className="grid justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <PortfolioCard img="/lokrangcreations/img_src/ved_vasudev.jpeg" title="Ved Vasudev Prathisthan" desc="" link="https://youtu.be/pKZ3f8XlhMo?si=q2E7sKo1ezR1Zan9" page="corporate" />
-          <PortfolioCard img="/lokrangcreations/img_src/asahi_india.jpeg" title="Asahi India Glass LTD" desc="" link="https://youtu.be/i3i0L4LdC8M" page="corporate" />
-          <PortfolioCard img="/lokrangcreations/img_src/happy_eggs.jpeg" title="Happy Eggs" desc=""link="https://youtu.be/J212YpeAPUo?si=A1p_AA1yj81PZMpI" page="corporate" />
+          <PortfolioCard img="/optimized-images/ved_vasudev.jpeg" title="Ved Vasudev Prathisthan" desc="" link="https://youtu.be/pKZ3f8XlhMo?si=q2E7sKo1ezR1Zan9" page="corporate" />
+          <PortfolioCard img="/optimized-images/asahi_india.jpeg" title="Asahi India Glass LTD" desc="" link="https://youtu.be/i3i0L4LdC8M" page="corporate" />
+          <PortfolioCard img="/optimized-images/happy_eggs.jpeg" title="Happy Eggs" desc=""link="https://youtu.be/J212YpeAPUo?si=A1p_AA1yj81PZMpI" page="corporate" />
           {/* <PortfolioCard img="https://placehold.co/350x350/333/FFF?text=Film+4" title="Film 4" desc="" /> */}
         </div>
       </div>
@@ -255,9 +255,9 @@ function App() {
       <h2 className="text-4xl font-bold mb-8">Music Videos</h2>
       <div className="flex justify-center w-full">
         <div className="grid justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <PortfolioCard img="/lokrangcreations/img_src/vande_mataram.png" title="Vande Mataram" desc="" link="https://youtu.be/dNmHibwmvqI?si=wxyIJHsY2LggTfkf" page="music" />
-          <PortfolioCard img="/lokrangcreations/img_src/bhakti_geet.png" title="Bhakti Geet" desc="" link="https://youtu.be/rDgTH4Gp3HE?si=tsmh0mvP6JsR6VMY" page="music" />
-          <PortfolioCard img="/lokrangcreations/img_src/gondhal.jpeg" title="Gondhal" desc="" link="https://youtu.be/TcVf62iYbks?si=PuMB7veUTuGpx7Yf" page="music" />
+          <PortfolioCard img="/optimized-images/vande_mataram.png" title="Vande Mataram" desc="" link="https://youtu.be/dNmHibwmvqI?si=wxyIJHsY2LggTfkf" page="music" />
+          <PortfolioCard img="/optimized-images/bhakti_geet.png" title="Bhakti Geet" desc="" link="https://youtu.be/rDgTH4Gp3HE?si=tsmh0mvP6JsR6VMY" page="music" />
+          <PortfolioCard img="/optimized-images/gondhal.jpeg" title="Gondhal" desc="" link="https://youtu.be/TcVf62iYbks?si=PuMB7veUTuGpx7Yf" page="music" />
           {/* <PortfolioCard img="https://placehold.co/350x350/333/FFF?text=Film+4" title="Film 4" desc="" /> */}
         </div>
       </div>
@@ -269,9 +269,9 @@ function App() {
       <h2 className="text-4xl font-bold mb-8">Short Films</h2>
       <div className="flex justify-center w-full">
         <div className="grid justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <PortfolioCard img="/lokrangcreations/img_src/motichor_ke_laddo.png" title="Motichoor Ke Laddoo" desc="" link="https://youtu.be/irysurGDovw?si=BTB2RLiadAo_gM32" page="short" />
-          <PortfolioCard img="/lokrangcreations/img_src/saarthi.png" title="Saarthi" desc="" link="https://youtu.be/xgOMM4izozs?si=tQRsbBV60XYQ_rk0" page="short" />
-          <PortfolioCard img="/lokrangcreations/img_src/tv_2.jpeg" title="TV" desc="" link="" page="short" /> //Link not available
+          <PortfolioCard img="/optimized-images/motichor_ke_laddo.png" title="Motichoor Ke Laddoo" desc="" link="https://youtu.be/irysurGDovw?si=BTB2RLiadAo_gM32" page="short" />
+          <PortfolioCard img="/optimized-images/saarthi.png" title="Saarthi" desc="" link="https://youtu.be/xgOMM4izozs?si=tQRsbBV60XYQ_rk0" page="short" />
+          <PortfolioCard img="/optimized-images/tv_2.jpeg" title="TV" desc="" link="" page="short" /> //Link not available
           {/* <PortfolioCard img="https://placehold.co/350x350/333/FFF?text=Film+4" title="Film 4" desc="" /> */}
         </div>
       </div>
@@ -283,9 +283,9 @@ function App() {
       <h2 className="text-4xl font-bold mb-8">Web Series</h2>
       <div className="flex justify-center w-full">
         <div className="grid justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <PortfolioCard img="/lokrangcreations/img_src/mai_bhi_youtuber.png" title="Mai Bhi Youtuber" desc="" link="https://youtube.com/playlist?list=PLsdgdmaYXaR9n1bhQsT1DAZz5Jw2kXAGh&si=Fasfbb0uQ4sPLxec" page="webseries" />
-          <PortfolioCard img="/lokrangcreations/img_src/dverb_archives.png" title="Dverb Archives" desc="" link="https://youtube.com/playlist?list=PL6MF45xwWlcAn3wkG848hjP4jOz9KihQ0&si=MOtiVGmfbEXJ5avb" page="webseries" />
-          <PortfolioCard img="/lokrangcreations/img_src/antarpat.jpeg" title="Antarpat" desc="" link ="https://youtu.be/U_Yme-0BoCw?si=iG2F0tGA9q8wB-bi" page="webseries" />
+          <PortfolioCard img="/optimized-images/mai_bhi_youtuber.png" title="Mai Bhi Youtuber" desc="" link="https://youtube.com/playlist?list=PLsdgdmaYXaR9n1bhQsT1DAZz5Jw2kXAGh&si=Fasfbb0uQ4sPLxec" page="webseries" />
+          <PortfolioCard img="/optimized-images/dverb_archives.png" title="Dverb Archives" desc="" link="https://youtube.com/playlist?list=PL6MF45xwWlcAn3wkG848hjP4jOz9KihQ0&si=MOtiVGmfbEXJ5avb" page="webseries" />
+          <PortfolioCard img="/optimized-images/antarpat.jpeg" title="Antarpat" desc="" link ="https://youtu.be/U_Yme-0BoCw?si=iG2F0tGA9q8wB-bi" page="webseries" />
         </div>
       </div>
     </div>
@@ -296,10 +296,10 @@ function App() {
       <h2 className="text-4xl font-bold mb-8">Social Media</h2>
       <div className="flex justify-center w-full">
         <div className="grid justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <PortfolioCard img="/lokrangcreations/img_src/the_mad_riyazi.png" title="The Mad Riyazi" desc="" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" page="socialmedia" />
-          <PortfolioCard img="/lokrangcreations/img_src/firodiya_karanadak.png" title="Firodiya Karanadak" desc="" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" page="socialmedia" />
-          <PortfolioCard img="/lokrangcreations/img_src/footloose_journeys.png" title="Footloose Journeys" desc="" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" page="socialmedia" />
-          <PortfolioCard img="/lokrangcreations/img_src/mahua_store.png" title="Mahua Store" desc="" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" page="socialmedia" />
+          <PortfolioCard img="/optimized-images/download.png" title="The Mad Riyazi" desc="" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" page="socialmedia" />
+          <PortfolioCard img="/optimized-images/firodiya_karandak.png" title="Firodiya Karanadak" desc="" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" page="socialmedia" />
+          <PortfolioCard img="/optimized-images/footloose_journeys.png" title="Footloose Journeys" desc="" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" page="socialmedia" />
+          <PortfolioCard img="/optimized-images/mahua_store.png" title="Mahua Store" desc="" link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" page="socialmedia" />
         </div>
       </div>
     </div>
@@ -316,7 +316,7 @@ function App() {
           {/* Abhishek Shinde */}
           <div className="bg-gray-800 p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out border border-gray-700">
             <img
-              src="/lokrangcreations/img_src/abhishek_profile.jpg"
+              src="/optimized-images/abhishek_profile.jpg"
               alt="Abhishek Shinde"
               className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-blue-400"
             />
@@ -328,7 +328,7 @@ function App() {
           {/* Vedant Naik */}
           <div className="bg-gray-800 p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out border border-gray-700">
             <img
-              src="/lokrangcreations/img_src/vedant_profile.jpg"
+              src="/optimized-images/vedant_profile.jpg"
               alt="Vedant Naik"
               className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-pink-400"
             />
@@ -340,7 +340,7 @@ function App() {
           {/* Yogish */}
           <div className="bg-gray-800 p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out border border-gray-700">
             <img
-              src="/lokrangcreations/img_src/yogish_profile.png"
+              src="/optimized-images/yogish_profile.png"
               alt="Yogish"
               className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-purple-400"
             />
@@ -498,7 +498,7 @@ function App() {
             {/* Logo/Brand Name */}
             <button onClick={() => scrollToSection('home')} className="text-white text-2xl font-bold tracking-wide flex items-center space-x-2 focus:outline-none pl-0 ml-0">
               <img
-                src="/lokrangcreations/img_src/LogoBlack.png"
+                src="/optimized-images/LogoBlack.png"
                 alt="Lokrang Creations Logo"
                 className="h-10 w-auto object-contain mr-2"
               />
