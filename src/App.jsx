@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // Main App component
 function App() {
@@ -403,234 +402,222 @@ function App() {
 
   // Main Render
   return (
-    <Router>
-      <div className="font-inter antialiased">
-        {/* Tailwind CSS CDN */}
-        <script src="https://cdn.tailwindcss.com"></script>
-        {/* Custom CSS for animations */}
-        <style>
-          {`
-          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    <div className="App bg-gray-900 text-white min-h-screen">
+      <style jsx>{`
+        /* Custom animations */
+        @keyframes fade-in-down {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-down {
+          animation: fade-in-down 0.3s ease-out forwards;
+        }
 
-          body {
-            font-family: 'Inter', sans-serif;
-          }
+        /* Slide Up Animation */
+        @keyframes slide-up {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up {
+          animation: slide-up 0.8s ease-out forwards;
+        }
+        .animate-slide-up-delay-1 {
+          animation: slide-up 0.8s ease-out 0.2s forwards;
+        }
+        .animate-slide-up-delay-2 {
+          animation: slide-up 0.8s ease-out 0.4s forwards;
+        }
 
-          /* Fade In Animation */
-          @keyframes fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-          .animate-fade-in {
-            animation: fade-in 1s ease-out forwards;
-          }
+        /* Zoom In Animation */
+        @keyframes zoom-in {
+          from { opacity: 0; transform: scale(0.9); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        .animate-zoom-in {
+          animation: zoom-in 0.8s ease-out forwards;
+        }
 
-          /* Slide Up Animation */
-          @keyframes slide-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          .animate-slide-up {
-            animation: slide-up 0.8s ease-out forwards;
-          }
-          .animate-slide-up-delay {
-            animation: slide-up 0.8s ease-out 0.2s forwards;
-          }
-          .animate-slide-up-delay-2 {
-            animation: slide-up 0.8s ease-out 0.4s forwards;
-          }
+        /* Scale In Animation */
+        @keyframes scale-in {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        .animate-scale-in {
+          animation: scale-in 0.8s ease-out forwards;
+        }
 
-          /* Zoom In Animation */
-          @keyframes zoom-in {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-          }
-          .animate-zoom-in {
-            animation: zoom-in 0.8s ease-out forwards;
-          }
+        /* Navigation link hover effect */
+        .nav-link {
+          position: relative;
+          display: inline-block;
+          padding-bottom: 4px; /* Space for the underline */
+        }
 
-          /* Scale In Animation */
-          @keyframes scale-in {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-          }
-          .animate-scale-in {
-            animation: scale-in 0.8s ease-out forwards;
-          }
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: #6366f1; /* Indigo-500 */
+          transition: width 0.3s ease-in-out;
+        }
 
-          /* Navigation link hover effect */
-          .nav-link {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 4px; /* Space for the underline */
-          }
+        .nav-link:hover::after {
+          width: 100%;
+        }
 
-          .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #6366f1; /* Indigo-500 */
-            transition: width 0.3s ease-in-out;
-          }
+        main {
+          scroll-snap-type: y mandatory;
+          overflow-y: scroll;
+          height: 100vh;
+        }
 
-          .nav-link:hover::after {
-            width: 100%;
-          }
+        section {
+          scroll-snap-align: start;
+        }
+        `}
+      </style>
 
-          main {
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            height: 100vh;
-          }
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-90 backdrop-blur-sm shadow-lg z-50 p-4">
+        <div className="w-full flex justify-between items-center">
+          {/* Logo/Brand Name */}
+          <button onClick={() => scrollToSection('home')} className="text-white text-2xl font-bold tracking-wide flex items-center space-x-2 focus:outline-none pl-0 ml-0">
+            <img
+              src="/lokrangcreations/optimized-images/LogoBlack.png"
+              alt="Lokrang Creations Logo"
+              className="h-10 w-auto object-contain mr-2"
+            />
+            <span
+              className="bg-gradient-to-r from-[#ea33b3] via-[#e6806a] via-[#911cbb] via-[#7420c2] to-[#59c2d2] bg-clip-text text-transparent"
+              style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+            >
+              LOKRANG CREATIONS
+            </span>
+          </button>
 
-          section {
-            scroll-snap-align: start;
-          }
-          `}
-        </style>
-
-        {/* Navigation Bar */}
-        <nav className="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-90 backdrop-blur-sm shadow-lg z-50 p-4">
-          <div className="w-full flex justify-between items-center">
-            {/* Logo/Brand Name */}
-            <button onClick={() => scrollToSection('home')} className="text-white text-2xl font-bold tracking-wide flex items-center space-x-2 focus:outline-none pl-0 ml-0">
-              <img
-                src="/lokrangcreations/optimized-images/LogoBlack.png"
-                alt="Lokrang Creations Logo"
-                className="h-10 w-auto object-contain mr-2"
-              />
-              <span
-                className="bg-gradient-to-r from-[#ea33b3] via-[#e6806a] via-[#911cbb] via-[#7420c2] to-[#59c2d2] bg-clip-text text-transparent"
-                style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-white focus:outline-none"
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                LOKRANG CREATIONS
-              </span>
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
             </button>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white focus:outline-none"
-              >
-                <svg
-                  className="w-8 h-8"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {isMenuOpen ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  )}
-                </svg>
-              </button>
-            </div>
-
-            {/* Desktop Navigation Links */}
-            <div className="hidden md:flex space-x-6 text-lg">
-              <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">Home</button>
-              <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">About Us</button>
-              <button onClick={() => scrollToSection('forte')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">Our Forte</button>
-              <div className="relative group">
-                <button onClick={() => scrollToSection('portfolio')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">Portfolio</button>
-                <div className="absolute left-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 origin-top">
-                  <button onClick={() => setCurrentPortfolioPage('corporate')} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md focus:outline-none">Corporate Films</button>
-                  <button onClick={() => setCurrentPortfolioPage('music')} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md focus:outline-none">Music Videos</button>
-                  <button onClick={() => setCurrentPortfolioPage('short')} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md focus:outline-none">Short Films</button>
-                  <button onClick={() => setCurrentPortfolioPage('webseries')} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md focus:outline-none">Web Series</button>
-                  <button onClick={() => setCurrentPortfolioPage('socialmedia')} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md focus:outline-none">Social Media</button>
-                </div>
-              </div>
-              <button onClick={() => scrollToSection('team')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">Our Team</button>
-              <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">Connect</button>
-            </div>
           </div>
 
-          {/* Mobile Menu Overlay */}
-          {isMenuOpen && (
-            <div className="md:hidden absolute top-16 left-0 right-0 bg-gray-900 bg-opacity-95 shadow-lg py-4 animate-fade-in-down">
-              <button
-                onClick={() => scrollToSection('home')}
-                className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none"
-              >
-                About Us
-              </button>
-              <button
-                onClick={() => scrollToSection('forte')}
-                className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none"
-              >
-                Our Forte
-              </button>
-              {/* Portfolio dropdown for mobile */}
-              <div className="relative">
-                <button
-                  onClick={() => { /* Toggle portfolio sub-menu if needed, for now just a button */ }}
-                  className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none"
-                >
-                  Portfolio
-                </button>
-                <div className="pl-8">
-                  <button onClick={() => setCurrentPortfolioPage('corporate')} className="block w-full text-left px-6 py-2 text-sm text-gray-300 hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Corporate Films</button>
-                  <button onClick={() => setCurrentPortfolioPage('music')} className="block w-full text-left px-6 py-2 text-sm text-gray-300 hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Music Videos</button>
-                  <button onClick={() => setCurrentPortfolioPage('short')} className="block w-full text-left px-6 py-2 text-sm text-gray-300 hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Short Films</button>
-                  <button onClick={() => setCurrentPortfolioPage('webseries')} className="block w-full text-left px-6 py-2 text-sm text-gray-300 hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Web Series</button>
-                  <button onClick={() => setCurrentPortfolioPage('socialmedia')} className="block w-full text-left px-6 py-2 text-sm text-gray-300 hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Social Media</button>
-                </div>
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex space-x-6 text-lg">
+            <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">Home</button>
+            <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">About Us</button>
+            <button onClick={() => scrollToSection('forte')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">Our Forte</button>
+            <div className="relative group">
+              <button onClick={() => scrollToSection('portfolio')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">Portfolio</button>
+              <div className="absolute left-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 origin-top">
+                <button onClick={() => setCurrentPortfolioPage('corporate')} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md focus:outline-none">Corporate Films</button>
+                <button onClick={() => setCurrentPortfolioPage('music')} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md focus:outline-none">Music Videos</button>
+                <button onClick={() => setCurrentPortfolioPage('short')} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md focus:outline-none">Short Films</button>
+                <button onClick={() => setCurrentPortfolioPage('webseries')} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md focus:outline-none">Web Series</button>
+                <button onClick={() => setCurrentPortfolioPage('socialmedia')} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md focus:outline-none">Social Media</button>
               </div>
-              <button onClick={() => scrollToSection('team')} className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Our Team</button>
-              <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Connect</button>
             </div>
-          )}
-        </nav>
+            <button onClick={() => scrollToSection('team')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">Our Team</button>
+            <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-white transition-colors duration-300 nav-link focus:outline-none">Connect</button>
+          </div>
+        </div>
 
-        {/* Main Content */}
-        <main className="pt-16">
-          {console.log("Rendering main content")} {/* Debug log */}
-          {currentPortfolioPage === null ? (
-            <>
-              <HomeSection />
-              <AboutSection />
-              <ForteSection />
-              <Portfolio />
-              <TeamSection />
-              <ContactSection />
-            </>
-          ) : currentPortfolioPage === 'corporate' ? (
-            <CorporateFilms />
-          ) : currentPortfolioPage === 'music' ? (
-            <MusicVideos />
-          ) : currentPortfolioPage === 'short' ? (
-            <ShortFilms />
-          ) : currentPortfolioPage === 'webseries' ? (
-            <WebSeries />
-          ) : currentPortfolioPage === 'socialmedia' ? (
-            <SocialMedia />
-          ) : null}
-        </main>
-      </div>
-    </Router>
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-gray-900 bg-opacity-95 shadow-lg py-4 animate-fade-in-down">
+            <button
+              onClick={() => scrollToSection('home')}
+              className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none"
+            >
+              Home
+            </button>
+            <button
+              onClick={() => scrollToSection('about')}
+              className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none"
+            >
+              About Us
+            </button>
+            <button
+              onClick={() => scrollToSection('forte')}
+              className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none"
+            >
+              Our Forte
+            </button>
+            {/* Portfolio dropdown for mobile */}
+            <div className="relative">
+              <button
+                onClick={() => { /* Toggle portfolio sub-menu if needed, for now just a button */ }}
+                className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none"
+              >
+                Portfolio
+              </button>
+              <div className="pl-8">
+                <button onClick={() => setCurrentPortfolioPage('corporate')} className="block w-full text-left px-6 py-2 text-sm text-gray-300 hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Corporate Films</button>
+                <button onClick={() => setCurrentPortfolioPage('music')} className="block w-full text-left px-6 py-2 text-sm text-gray-300 hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Music Videos</button>
+                <button onClick={() => setCurrentPortfolioPage('short')} className="block w-full text-left px-6 py-2 text-sm text-gray-300 hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Short Films</button>
+                <button onClick={() => setCurrentPortfolioPage('webseries')} className="block w-full text-left px-6 py-2 text-sm text-gray-300 hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Web Series</button>
+                <button onClick={() => setCurrentPortfolioPage('socialmedia')} className="block w-full text-left px-6 py-2 text-sm text-gray-300 hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Social Media</button>
+              </div>
+            </div>
+            <button onClick={() => scrollToSection('team')} className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Our Team</button>
+            <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-6 py-3 text-white hover:bg-gray-700 transition-colors duration-300 focus:outline-none">Connect</button>
+          </div>
+        )}
+      </nav>
+
+      {/* Main Content */}
+      <main className="pt-16">
+        {console.log("Rendering main content")} {/* Debug log */}
+        {currentPortfolioPage === null ? (
+          <>
+            <HomeSection />
+            <AboutSection />
+            <ForteSection />
+            <Portfolio />
+            <TeamSection />
+            <ContactSection />
+          </>
+        ) : currentPortfolioPage === 'corporate' ? (
+          <CorporateFilms />
+        ) : currentPortfolioPage === 'music' ? (
+          <MusicVideos />
+        ) : currentPortfolioPage === 'short' ? (
+          <ShortFilms />
+        ) : currentPortfolioPage === 'webseries' ? (
+          <WebSeries />
+        ) : currentPortfolioPage === 'socialmedia' ? (
+          <SocialMedia />
+        ) : null}
+      </main>
+    </div>
   );
 }
 
